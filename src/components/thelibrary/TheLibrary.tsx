@@ -1,5 +1,7 @@
 import { oswald } from '@/fonts/Fonts';
 import React from 'react';
+import { TheLibraryDataType } from '@/types/types'
+import TheLibraryCard from './TheLibraryCard';
 
 const getData = async () => {
   const response = await fetch('https://api.abcz.workers.dev/api/fitlog');
@@ -10,18 +12,26 @@ const getData = async () => {
 const TheLibrary = async () => {
   const FitLogData = await getData();
 
-  console.log(FitLogData, 'data');
   return (
     <section id='library' className='mt-15'>
       <div className='container max-w-5xl mx-auto'>
 
         <div>
           <h1 className={`text-2xl text-[#ffff] font-bold ${oswald.className}`}>THE LIBRARY</h1>
-          <p className='text-[#9CA3AF] text-[14px]'>Twelve lifts covering every major muscle group.</p>
+          <p className='text-[#9CA3AF] text-[14px]mt-5'>Twelve lifts covering every major muscle group.</p>
         </div>
 
-        <div>
-          {}
+        <div className='grid grid-cols-3 gap-8 mt-10'>
+          {
+            FitLogData.map((fitLog: TheLibraryDataType ) => {
+              return (
+                <div key={fitLog.id}>
+                  <TheLibraryCard fitLog={fitLog} />
+                </div>
+              )
+               
+            })
+          }
         </div>
 
       </div>
