@@ -37,12 +37,12 @@ const NavBar = () => {
           <div className="navbar-end items-center space-x-4">
            
             <div className='flex items-center gap-1' >
-              <Link href='' className='font-semibold text-white' >Plan</Link>
+              <Link href='/myplan' className='font-semibold text-white' >Plan</Link>
               <span className='inline-flex items-center justify-center rounded-full w-5 h-5 font-bold shrink-0 bg-[#C2F800] text-black'>0</span>
             </div>
 
             <div className='flex items-center gap-2' >
-              <Link href='' className='font-semibold text-white' >Saved</Link>
+              <Link href='/myplan' className='font-semibold text-white' >Saved</Link>
               <span className='inline-flex items-center justify-center rounded-full w-5 h-5 outline-2 outline-[#2D313B] font-bold shrink-0 text-white'>0</span>
             </div>
           </div>
