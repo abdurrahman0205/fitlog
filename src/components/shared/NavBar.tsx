@@ -5,7 +5,7 @@ import Logo from '@/assets/logo.svg';
 const NavBar = () => {
 
   const navMenu = <>
-    <li className='text-[#C2F800] rounded-2xl bg-[#C2F800]/20 hover:bg-none'>
+    <li className='text-[#C2F800] rounded-2xl bg-[#C2F800]/20'>
       <Link href='/'>Workouts</Link> </li>
     <li className='hover:bg-none'><Link href='/myplan'>My Plan</Link></li>
   </>;

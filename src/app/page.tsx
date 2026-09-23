@@ -1,9 +1,11 @@
-import Image from "next/image";
+import Banner from "@/components/homepage/Banner";
+
 
 export default function Home() {
   return (
     <div>
-      This is home
+      <Banner />
+      
     </div>
   );
 }
