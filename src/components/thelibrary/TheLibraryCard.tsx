@@ -4,7 +4,8 @@ import Image from 'next/image';
 import { IoMdTime } from 'react-icons/io';
 import { FaRegStar } from 'react-icons/fa';
 import { PiFireSimpleFill } from 'react-icons/pi';
-import { oswald } from '@/fonts/Fonts';
+import { oswald } from '@/lib/Fonts';
+import Link from 'next/link';
 
 interface TheLibraryCardProps {
   fitLog: TheLibraryDataType
@@ -12,13 +13,14 @@ interface TheLibraryCardProps {
 
 const TheLibraryCard = ({ fitLog }: TheLibraryCardProps) => {
 
-  const { name, image, equipment, muscleGroups, rating, duration, caloriesBurned } = fitLog
+  const { id, name, image, equipment, muscleGroups, rating, duration, caloriesBurned } = fitLog
 
 
   return (
+    <Link href={`/thelibrarydetails/${id}`}>
     <div className="card bg-base-100 shadow-sm rounded-2xl">
       <figure className='h-50'>
-        <Image src={image} width={1200} height={700} className='w-full object-cover' alt={`${name}`} />
+          <Image src={image} width={740} height={740} className='w-full h-auto object-cover' alt={`${name}`} />
       </figure>
       <div className="card-body">
 
@@ -46,7 +48,8 @@ const TheLibraryCard = ({ fitLog }: TheLibraryCardProps) => {
         </div>
 
       </div>
-    </div>
+      </div>
+      </Link>
   );
 };
 

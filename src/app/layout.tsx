@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import NavBar from "@/components/shared/NavBar";
-import { inter } from "@/fonts/Fonts";
+import { inter } from "@/lib/Fonts";
 
 
 
@@ -15,11 +15,11 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     <html
       lang="en"
       className={`h-full antialiased`} >
-      <body className= {`${inter.className} min-h-full flex flex-col`} >
-        
+      <body className={`${inter.className} min-h-full flex flex-col`} >
+
         {/* Navbar */}
         <NavBar />
-        
+
         <main>{children}</main>
 
 

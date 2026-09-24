@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import BannerImage from '@/assets/banner.png';
-import { oswald } from '@/fonts/Fonts';
+import { oswald } from '@/lib/Fonts';
 
 
 
