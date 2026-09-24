@@ -18,7 +18,7 @@ const TheLibraryCard = ({ fitLog }: TheLibraryCardProps) => {
 
   return (
     <Link href={`/thelibrarydetails/${id}`}>
-    <div className="card bg-base-100 shadow-sm rounded-2xl">
+      <div className="card bg-[#15171D] shadow-sm rounded-2xl">
       <figure className='h-50'>
           <Image src={image} width={740} height={740} className='w-full h-auto object-cover' alt={`${name}`} />
       </figure>

@@ -14,7 +14,7 @@ const Banner = () => {
           <h1 className={`${oswald.className} text-[50px]/12 font-extrabold`}>TRAIN WITH INTENT. LOG EVERY SET.</h1>
           <p className='max-w-120 mt-4 text-[#9CA3AF]'>FitLog is a dark, no-nonsense gym companion: pick a lift, lock it
             into today&apos;s plan, and watch the week&apos;s work add up.</p>
-          <a href="#library"><button className='btn mt-6 bg-[#C2F800] border-none text-black'>BROWSE WORKOUTS</button></a>
+          <a href="#library"><button className='btn mt-6 bg-[#C2F800] border-none rounded-md text-black'>BROWSE WORKOUTS</button></a>
         </div>
         <div> <Image src={BannerImage} width={500} height={500} alt='Banner'></Image> </div>
       </div>

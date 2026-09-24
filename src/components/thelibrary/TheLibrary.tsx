@@ -13,8 +13,8 @@ const TheLibrary = async () => {
   const FitLogData = await getData();
 
   return (
-    <section id='library' className='mt-15 '>
-      <div className='container px-10 md:px-0 max-w-5xl mx-auto'>
+    <section id='library' className='my-15 '>
+      <div className='container px-10 md:px-0 max-w-5xl xl:max-w-7xl mx-auto'>
 
         <div>
           <h1 className={`text-2xl text-[#ffff] font-bold ${oswald.className}`}>THE LIBRARY</h1>

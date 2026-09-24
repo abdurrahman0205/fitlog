@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import NavBar from "@/components/shared/NavBar";
 import { inter } from "@/lib/Fonts";
+import Footer from "@/components/shared/Footer";
 
 
 
@@ -14,6 +15,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
+      data-theme ='black'
       className={`h-full antialiased`} >
       <body className={`${inter.className} min-h-full flex flex-col`} >
 
@@ -22,7 +24,8 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
 
         <main>{children}</main>
 
-
+        {/* Footer */}
+        <Footer />
       </body>
     </html>
   );
