@@ -2,6 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import Logo from '@/assets/logo.svg';
 import NavBarMiddleMenu from './NavBarMiddleMenu';
+import NavBarFunction from '../functions/NavBarFunction';
 
 const NavBar = () => {
 
@@ -39,12 +40,14 @@ const NavBar = () => {
            
             <div className='flex items-center gap-1' >
               <Link href='/myplan' className='font-semibold text-white' >Plan</Link>
-              <span className='inline-flex items-center justify-center rounded-full w-5 h-5 font-bold shrink-0 bg-[#C2F800] text-black'>0</span>
+              <span className='inline-flex items-center justify-center rounded-full w-5 h-5 font-bold shrink-0 bg-[#C2F800] text-black'>
+                <NavBarFunction request = 'plan' />
+              </span>
             </div>
 
             <div className='flex items-center gap-2' >
               <Link href='/myplan' className='font-semibold text-white' >Saved</Link>
-              <span className='inline-flex items-center justify-center rounded-full w-5 h-5 outline-2 outline-[#2D313B] font-bold shrink-0 text-white'>0</span>
+              <span className='inline-flex items-center justify-center rounded-full w-5 h-5 outline-2 outline-[#2D313B] font-bold shrink-0 text-white'><NavBarFunction request='saved' /></span>
             </div>
           </div>
         </div>

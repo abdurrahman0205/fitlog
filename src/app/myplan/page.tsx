@@ -2,7 +2,7 @@ import MetricsSummaryRow from '@/components/shared/MetricsSummaryRow';
 import PlanTabs from '@/components/PlansTab/PlanTabs';
 import { oswald } from '@/lib/Fonts';
 
-import MyPlanFunction from '@/components/shared/MyPlanFunction';
+import MyPlanFunction from '@/components/functions/MyPlanFunction';
 
 
 const MyPlanPage = () => {
@@ -19,7 +19,7 @@ const MyPlanPage = () => {
           <div> <MetricsSummaryRow /> </div>
           <div> <PlanTabs /> </div>
 
-          <div className='mb-15'>  
+          <div className='mb-15'>
             <MyPlanFunction />
           </div>
 
