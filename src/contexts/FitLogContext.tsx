@@ -2,7 +2,7 @@
 import { TheLibraryDataType } from '@/types/types';
 import React, { createContext, Dispatch, ReactNode, SetStateAction, useState } from 'react';
 
-interface FitLogContextDataType {
+ interface FitLogContextDataType {
   isSelected: boolean;
   setIsSelected: Dispatch<SetStateAction<boolean>>
   isTodaysPlan: TheLibraryDataType[]

@@ -9,7 +9,7 @@ const PlanTabs = () => {
 
   const {isSelected, setIsSelected } = useContext(FitLogContext);
 
-  console.log(isSelected, 'rendered?');
+
 
   return (
     <div className='grid grid-cols-2 items-center text-[14px] '>

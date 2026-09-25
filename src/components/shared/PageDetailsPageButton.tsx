@@ -8,13 +8,18 @@ import { VscBookmark } from 'react-icons/vsc';
 
 const PageDetailsPageButton = ({ fitLog }: { fitLog: TheLibraryDataType }) => {
 
-  const { isTodaysPlan, setIsTodaysPlan } = useContext(FitLogContext);
+  const {isTodaysPlan, setIsTodaysPlan, isSaved, setIsSaved  } = useContext(FitLogContext);
   
   const handleTodaysPlan = (fitLog: TheLibraryDataType) => {
     setIsTodaysPlan([...isTodaysPlan, fitLog]);
   }
   
-  console.log(isTodaysPlan, 'rendering?')
+  const handleSavedPlan = (fitLog: TheLibraryDataType) => {
+    setIsSaved([...isSaved, fitLog]);
+    console.log(isSaved,'This is saved plan Rendering');
+  }
+  
+ 
 
 
   return (
@@ -23,7 +28,10 @@ const PageDetailsPageButton = ({ fitLog }: { fitLog: TheLibraryDataType }) => {
         onClick={()=> handleTodaysPlan(fitLog)}
         className='flex items-center gap-2 bg-[#CCFF00] rounded-xl text-black font-semibold text-[16px] py-3 px-6 cursor-pointer'><PiCalendarPlus className='text-[18px]' />Add to today&apos;s plan</button>
 
-      <button className='flex items-center gap-2 rounded-xl outline outline-[#374151] text-white font-semibold text-[16px] py-3 px-6'><VscBookmark className='text-[18px]' />Save for later</button>
+      <button
+        
+        onClick={() => handleSavedPlan(fitLog)}
+        className='flex items-center gap-2 rounded-xl outline outline-[#374151] text-white font-semibold text-[16px] py-3 px-6'><VscBookmark className='text-[18px]' />Save for later</button>
       
     </div>
   );
