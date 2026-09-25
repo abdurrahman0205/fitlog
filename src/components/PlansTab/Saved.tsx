@@ -3,16 +3,23 @@ import { FitLogContext } from '@/contexts/FitLogContext';
 import { oswald } from '@/lib/Fonts';
 import { TheLibraryDataType } from '@/types/types';
 import Image from 'next/image';
+import Link from 'next/link';
 import React, { useContext } from 'react';
 import { FaRegStar } from 'react-icons/fa';
 import { IoMdTime } from 'react-icons/io';
 import { PiFireSimpleFill } from 'react-icons/pi';
+import { RxCross2 } from 'react-icons/rx';
+import { toast } from 'react-toastify';
 
 const Saved = () => {
 
-  const { isSaved } = useContext(FitLogContext)
+  const { isSaved, setIsSaved } = useContext(FitLogContext)
 
-
+  const handleSavedPlanDelete =(fitLog: TheLibraryDataType) => {
+      const restItem = isSaved.filter((deletedPlan: TheLibraryDataType) => deletedPlan !== fitLog)
+      setIsSaved([...restItem]);
+      toast.error(`Removed ${fitLog.name} from the list`)
+    } 
 
 
   return (
@@ -52,9 +59,13 @@ const Saved = () => {
                 </div>
               </div>
               {/* Button part */}
-              <div className='flex gap-3 justify-end'>
-                <button className='btn rounded'>View Details</button>
-                <button className='btn rounded'>Remove</button>
+
+              <div className='flex gap-3 justify-end items-center text-[13px] text-black'>
+                <Link href={`/thelibrarydetails/${id}`} className='text-white rounded-2xl cursor-pointer py-2 px-5 outline outline-[#374151]'>View Details</Link>
+
+                <RxCross2
+                  onClick={() => handleSavedPlanDelete(FitLog)}
+                  className='text-[#6B7280] text-[25px] mr-5 cursor-pointer' />
               </div>
 
             </div>

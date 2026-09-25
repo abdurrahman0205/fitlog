@@ -13,3 +13,5 @@ export interface TheLibraryDataType {
   description: string
   instructions: string[]
 }
+
+export type SelectedPlanType = 'today' | 'saved';

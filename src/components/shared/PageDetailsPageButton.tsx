@@ -71,14 +71,7 @@ const PageDetailsPageButton = ({ fitLog }: { fitLog: TheLibraryDataType }) => {
     }
 
 
-
-
-
-
-
   }
-
-
 
 
   return (

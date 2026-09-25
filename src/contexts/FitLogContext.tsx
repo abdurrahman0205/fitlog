@@ -1,29 +1,28 @@
 'use client'
-import { TheLibraryDataType } from '@/types/types';
+import { SelectedPlanType, TheLibraryDataType } from '@/types/types';
 import React, { createContext, Dispatch, ReactNode, SetStateAction, useState } from 'react';
 
- interface FitLogContextDataType {
-  isSelected: boolean;
-  setIsSelected: Dispatch<SetStateAction<boolean>>
-  isTodaysPlan: TheLibraryDataType[]
-  setIsTodaysPlan: Dispatch<SetStateAction<TheLibraryDataType[]>>
-  isSaved: TheLibraryDataType[]
-  setIsSaved: Dispatch<SetStateAction<TheLibraryDataType[]>>
-}
+ export interface FitLogContextDataType {
+  selectedPlan: SelectedPlanType,
+  setSelectedPlan: Dispatch<SetStateAction<SelectedPlanType>>,
+  isTodaysPlan: TheLibraryDataType[],
+  setIsTodaysPlan: Dispatch<SetStateAction<TheLibraryDataType[]>>,
+  isSaved: TheLibraryDataType[],
+  setIsSaved: Dispatch<SetStateAction<TheLibraryDataType[]>>,
+  }
+ 
+  export const FitLogContext = createContext<FitLogContextDataType | null>(null);
 
+const FitLogProvider = ({ children }: { children: ReactNode }) => {
 
-export const FitLogContext = createContext<FitLogContextDataType>({});
-
-const FitLogProvider = ({children}:{children: ReactNode}) => {
-
-  const [isSelected, setIsSelected] = useState<boolean>(false);
+  const [selectedPlan, setSelectedPlan] = useState<SelectedPlanType>('today');
   const [isTodaysPlan, setIsTodaysPlan] = useState<TheLibraryDataType[]>([]);
   const [isSaved, setIsSaved] = useState<TheLibraryDataType[]>([]);
 
 
   const sharedData = {
-    isSelected,
-    setIsSelected,
+    selectedPlan,
+    setSelectedPlan,
     isTodaysPlan,
     setIsTodaysPlan,
     isSaved,

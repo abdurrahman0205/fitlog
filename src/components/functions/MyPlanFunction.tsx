@@ -7,24 +7,25 @@ import Saved from '../PlansTab/Saved';
 
 const MyPlanFunction = () => {
 
-  const { isSelected, setIsSelected, isTodaysPlan, isSaved } = useContext(FitLogContext);
+  const { selectedPlan, isTodaysPlan, isSaved } = useContext(FitLogContext);
 
 
+  if (selectedPlan === 'today') {
 
-  if (isTodaysPlan.length === 0) {
-    return <EmptyPlan />
-  } else if (!isSelected) {
-    return <TodaysPlan />
-  }
-
-  if (isSaved.length === 0) {
-    return <EmptyPlan />
-  } else if (isSelected) {
+    if (isTodaysPlan.length === 0) {
+      return <EmptyPlan />
+    } else {
+      return <TodaysPlan />
+    }
+  } else {
+    if (isSaved.length === 0) {
+      return <EmptyPlan />
+    } else {
     return <Saved />
   }
+}
 
 
-  return '';
 };
 
 export default MyPlanFunction;

@@ -1,41 +1,42 @@
 'use client'
-import { FitLogContext } from '@/contexts/FitLogContext';
+import { FitLogContext, FitLogContextDataType } from '@/contexts/FitLogContext';
+import { TheLibraryDataType } from '@/types/types';
 import React, { useContext } from 'react';
 
 interface MFPropsType {
   request: string,
 }
 
+
+
 const MetricCountFunctions = ({request}:MFPropsType) => {
 
-  // const { requested } = request
-
-  const {isTodaysPlan, isSelected, isSaved} = useContext(FitLogContext);
+  const {isTodaysPlan, selectedPlan, isSaved} = useContext(FitLogContext);
 
   
   // Plan Count Section
-  if (!isSelected && request === 'plan') {
+  if (selectedPlan === 'today' && request === 'plan') {
     return isTodaysPlan.length;
   } 
 
-  if (isSelected && request === 'plan') {
+  if (selectedPlan === 'saved' && request === 'plan') {
     return isSaved.length;
   } 
 
 
 // Duration Total Count Section
-  if (!isSelected && request === 'duration') {
+  if (selectedPlan === 'today' && request === 'duration') {
    //Today's Plan
-   return isTodaysPlan.reduce((total, currentValue,) => {
+   return isTodaysPlan.reduce((total: number, currentValue: TheLibraryDataType,) => {
       const { duration } = currentValue;
       return total + duration;
     }, 0)
 
   }
 
-  if (isSelected && request === 'duration') {
+  if (selectedPlan === 'saved' && request === 'duration') {
    //Saved Plan
-   return isSaved.reduce((total, currentValue,) => {
+    return isSaved.reduce((total: number, currentValue: TheLibraryDataType,) => {
       const { duration } = currentValue;
       return total + duration;
     }, 0)
@@ -43,25 +44,25 @@ const MetricCountFunctions = ({request}:MFPropsType) => {
   }
 
   //Calories Total Count Section
-  if (!isSelected && request === 'calories') {
+  if (selectedPlan === 'today' && request === 'calories') {
    //Today's Plan
-   return isTodaysPlan.reduce((total, currentValue,) => {
+    return isTodaysPlan.reduce((total: number, currentValue: TheLibraryDataType,) => {
      const { caloriesBurned } = currentValue;
      return total + caloriesBurned;
     }, 0)
 
   }
 
-  if (isSelected && request === 'calories') {
+  if (selectedPlan === 'saved' && request === 'calories') {
    //Saved Plan
-   return isSaved.reduce((total, currentValue,) => {
+    return isSaved.reduce((total: number, currentValue: TheLibraryDataType,) => {
      const { caloriesBurned } = currentValue;
      return total + caloriesBurned;
     }, 0)
 
   }
 
-  return ''
+
 };
 
 export default MetricCountFunctions;

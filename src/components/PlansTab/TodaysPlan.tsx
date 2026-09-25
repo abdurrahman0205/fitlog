@@ -3,16 +3,23 @@ import { FitLogContext } from '@/contexts/FitLogContext';
 import { oswald } from '@/lib/Fonts';
 import { TheLibraryDataType } from '@/types/types';
 import Image from 'next/image';
+import Link from 'next/link';
 import React, { useContext } from 'react';
 import { FaRegStar } from 'react-icons/fa';
 import { IoMdTime } from 'react-icons/io';
 import { PiFireSimpleFill } from 'react-icons/pi';
+import { RxCross2 } from 'react-icons/rx';
+import { toast } from 'react-toastify';
 
 const TodaysPlan = () => {
 
-  const { isTodaysPlan } = useContext(FitLogContext)
+  const { isTodaysPlan, setIsTodaysPlan } = useContext(FitLogContext)
 
-
+  const handleTodaysPlanDelete = (fitLog: TheLibraryDataType) => {
+    const restItem = isTodaysPlan.filter((deletedPlan: TheLibraryDataType) => deletedPlan !== fitLog)
+    setIsTodaysPlan([...restItem]);
+    toast.error(`Removed ${fitLog.name} from the list`)
+  }
 
 
   return (
@@ -31,13 +38,10 @@ const TodaysPlan = () => {
                 <figure className='2xl'>
                   <Image src={image} width={740} height={740} className='w-30 h-20 object-cover rounded-2xl' alt={`${name}`} />
                 </figure>
-                <div className="">
+                <div>
                   {/* card-body*/}
-
                   <h2 className={`font-bold ${oswald.className}`}>{name.toUpperCase()}</h2>
                   <p className='text-[12px] text-[#black]'>{equipment}</p>
-
-
 
                   <div className='flex justify-start text-white items-center space-x-5'>
                     <div className='flex gap-1 items-center'><IoMdTime className='text-[16px] text-[#CCFF00]' /><span>{`${duration} min`}</span></div>
@@ -52,9 +56,12 @@ const TodaysPlan = () => {
                 </div>
               </div>
               {/* Button part */}
-              <div className='flex gap-3 justify-end'>
-                <button className='btn rounded'>View Details</button>
-                <button className='btn rounded'>Remove</button>
+              <div className='flex gap-3 justify-end items-center text-[13px] text-black'>
+                <Link href={`/thelibrarydetails/${id}`} className='text-white rounded-2xl cursor-pointer py-2 px-5 outline outline-[#374151]'>View Details</Link>
+                <button className='bg-[#CCFF00] rounded-2xl font-semibold cursor-pointer py-2 px-5'>Mark as Done</button>
+                <RxCross2
+                  onClick={() => handleTodaysPlanDelete(FitLog)}
+                  className='text-[#6B7280] text-[25px] mr-5 cursor-pointer' />
               </div>
 
             </div>
