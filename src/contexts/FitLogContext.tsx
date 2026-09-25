@@ -11,7 +11,16 @@ import React, { createContext, Dispatch, ReactNode, SetStateAction, useState } f
   setIsSaved: Dispatch<SetStateAction<TheLibraryDataType[]>>,
   }
  
-  export const FitLogContext = createContext<FitLogContextDataType | null>(null);
+export const FitLogContext = createContext<FitLogContextDataType>(
+  {
+    selectedPlan:'today',
+    setSelectedPlan: ()=>{},
+    isTodaysPlan:[],
+      setIsTodaysPlan: ()=> { },
+    isSaved:[],
+    setIsSaved: () => { }
+  }
+  );
 
 const FitLogProvider = ({ children }: { children: ReactNode }) => {
 
