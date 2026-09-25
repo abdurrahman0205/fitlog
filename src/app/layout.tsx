@@ -3,6 +3,8 @@ import "./globals.css";
 import NavBar from "@/components/shared/NavBar";
 import { inter } from "@/lib/Fonts";
 import Footer from "@/components/shared/Footer";
+import FitLogProvider from "@/contexts/FitLogContext";
+import { ToastContainer } from "react-toastify";
 
 
 
@@ -18,6 +20,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       data-theme ='black'
       className={`h-full antialiased`} >
       <body className={`${inter.className} min-h-full flex flex-col`} >
+        <FitLogProvider>
 
         {/* Navbar */}
         <NavBar />
@@ -25,7 +28,10 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <main>{children}</main>
 
         {/* Footer */}
-        <Footer />
+          <Footer />
+          
+        </FitLogProvider>
+        <ToastContainer />
       </body>
     </html>
   );

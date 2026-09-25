@@ -1,6 +1,6 @@
 import EmptyPlan from '@/components/shared/EmptyPlan';
 import MetricsSummaryRow from '@/components/shared/MetricsSummaryRow';
-import PlanTabs from '@/components/shared/PlanTabs';
+import PlanTabs from '@/components/PlansTab/PlanTabs';
 import { oswald } from '@/lib/Fonts';
 
 

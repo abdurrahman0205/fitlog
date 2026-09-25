@@ -1,3 +1,4 @@
+import PageDetailsPageButton from '@/components/shared/PageDetailsPageButton';
 import { getData } from '@/components/thelibrary/TheLibrary';
 import { oswald } from '@/lib/Fonts';
 import { TheLibraryDataType } from '@/types/types';
@@ -29,7 +30,7 @@ const TLDetailsPage = async({params,}:{params: Promise<{id: string}>}) => {
   return (
     <section>
 
-      <div className='container px-10 md:px-0 mx-auto max-w-5xl mt-15'>
+      <div className='container px-10 md:px-0 mx-auto max-w-5xl mt-15 mb-18'>
       
         <div className='grid md:grid-cols-2 gap-5 justify-between'>
           <div className=''><Image src={image} width={740} height={740} className='w-full h-auto rounded-md' alt={name} /></div>
@@ -74,9 +75,8 @@ const TLDetailsPage = async({params,}:{params: Promise<{id: string}>}) => {
               </ol>
             </div>
 
-            <div>
-              <button></button>
-              <button></button>
+            <div className='mt-8'>
+              <PageDetailsPageButton fitLog={fitLog} />
             </div>
 
           </div>
