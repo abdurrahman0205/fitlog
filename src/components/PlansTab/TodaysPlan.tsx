@@ -37,6 +37,17 @@ const TodaysPlan = () => {
 
    const sortedPlan = sortList(isTodaysPlan);
 
+   
+   
+  //Mark as Done
+  const handleMarkAsDone = (fitLog: TheLibraryDataType) => {
+    const restItem = isTodaysPlan.filter((markDone: TheLibraryDataType) => markDone !== fitLog)
+    setIsTodaysPlan([...restItem]);
+    toast.success(`Completed ${fitLog.name}`)
+  }
+  
+  
+  
   return (
     <div className='grid grid-cols-1 gap-3'>
       {
@@ -73,7 +84,9 @@ const TodaysPlan = () => {
               {/* Button part */}
               <div className='flex gap-3 justify-end items-center text-[13px] text-black'>
                 <Link href={`/thelibrarydetails/${id}`} className='text-white rounded-2xl cursor-pointer py-2 px-5 outline outline-[#374151]'>View Details</Link>
-                <button className='bg-[#CCFF00] rounded-2xl font-semibold cursor-pointer py-2 px-5'>Mark as Done</button>
+                <button
+                  onClick={() => handleMarkAsDone(FitLog)}
+                  className='bg-[#CCFF00] rounded-2xl font-semibold cursor-pointer py-2 px-5'>Mark as Done</button>
                 <RxCross2
                   onClick={() => handleTodaysPlanDelete(FitLog)}
                   className='text-[#6B7280] text-[25px] mr-5 cursor-pointer' />
