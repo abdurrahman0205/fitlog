@@ -9,7 +9,7 @@ import { FaRegStar } from 'react-icons/fa';
 import { IoMdTime } from 'react-icons/io';
 import { PiFireSimpleFill } from 'react-icons/pi';
 import { RxCross2 } from 'react-icons/rx';
-import { toast } from 'react-toastify';
+import { Bounce, toast } from 'react-toastify';
 
 const Saved = () => {
 
@@ -18,7 +18,17 @@ const Saved = () => {
   const handleSavedPlanDelete = (fitLog: TheLibraryDataType) => {
     const restItem = isSaved.filter((deletedPlan: TheLibraryDataType) => deletedPlan !== fitLog)
     setIsSaved([...restItem]);
-    toast.error(`Removed ${fitLog.name} from the list`)
+    toast.error(`Removed ${fitLog.name} from the list`, {
+      position: "top-right",
+      autoClose: 1000,
+      hideProgressBar: true,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "dark",
+      transition: Bounce,
+    })
   }
 
   // Sort By

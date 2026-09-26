@@ -13,9 +13,16 @@ const PageDetailsPageButton = ({ fitLog }: { fitLog: TheLibraryDataType }) => {
 
   const handleTodaysPlan = (fitLog: TheLibraryDataType) => {
 
-    if (!isTodaysPlan.includes(fitLog)) {
+    let uId = [];
+    for (let item of isTodaysPlan) {
+      uId.push(item.id);
+    }
+
+
+    if (!uId.includes(fitLog.id)) {
+
       setIsTodaysPlan([...isTodaysPlan, fitLog]);
-      toast.success(`Added ${fitLog.name} to your Today's Plan`, {
+      toast.success(`Added ${fitLog.name} to your list`, {
         position: "top-right",
         autoClose: 1000,
         hideProgressBar: true,
@@ -27,7 +34,7 @@ const PageDetailsPageButton = ({ fitLog }: { fitLog: TheLibraryDataType }) => {
         transition: Bounce,
       })
     } else {
-      toast.error(`${fitLog.name} is already added.`, {
+      toast.error(`${fitLog.name} is already added to the list.`, {
         position: "top-right",
         autoClose: 1000,
         hideProgressBar: true,
@@ -43,7 +50,12 @@ const PageDetailsPageButton = ({ fitLog }: { fitLog: TheLibraryDataType }) => {
 
   const handleSavedPlan = (fitLog: TheLibraryDataType) => {
 
-    if (!isSaved.includes(fitLog)) {
+    let uId: number[] = [];
+    for (let item of isSaved) {
+      uId.push(item.id);
+    }
+
+    if (!uId.includes(fitLog.id)) {
       setIsSaved([...isSaved, fitLog]);
       toast.success(`Saved ${fitLog.name} for later`, {
         position: "top-right",

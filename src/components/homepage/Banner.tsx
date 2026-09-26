@@ -8,7 +8,7 @@ import { CgGym } from 'react-icons/cg';
 
 const Banner = () => {
   return (
-    <section className='mt-10'>
+    <section className='mt-32'>
       <div className='px-5 lg:px-0'>
         <div className='container max-w-5xl mx-auto flex flex-col lg:flex-row gap-10 lg:gap-0 lg:justify-between items-center py-10 px-5 lg:px-12 bg-[#15171D] rounded-2xl border border-[#222630] text-center md:text-left'>
           <div>

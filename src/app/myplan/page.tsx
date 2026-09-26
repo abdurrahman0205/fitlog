@@ -7,7 +7,7 @@ import MyPlanFunction from '@/components/functions/MyPlanFunction';
 
 const MyPlanPage = () => {
   return (
-    <section>
+    <section className='mt-20'>
       <div className='container mx-auto max-w-5xl px-5 lg:px-0'>
         <div className='flex flex-col gap-6'>
 

@@ -9,7 +9,7 @@ import { FaRegStar } from 'react-icons/fa';
 import { IoMdTime } from 'react-icons/io';
 import { PiFireSimpleFill } from 'react-icons/pi';
 import { RxCheck, RxCross2 } from 'react-icons/rx';
-import { toast } from 'react-toastify';
+import { Bounce, toast } from 'react-toastify';
 
 const TodaysPlan = () => {
 
@@ -18,36 +18,56 @@ const TodaysPlan = () => {
   const handleTodaysPlanDelete = (fitLog: TheLibraryDataType) => {
     const restItem = isTodaysPlan.filter((deletedPlan: TheLibraryDataType) => deletedPlan !== fitLog)
     setIsTodaysPlan([...restItem]);
-    toast.error(`Removed ${fitLog.name} from the list`)
+    toast.error(`Removed ${fitLog.name} from the list`, {
+      position: "top-right",
+      autoClose: 1000,
+      hideProgressBar: true,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "dark",
+      transition: Bounce,
+    })
   }
 
 
   // Sort By
-    const sortList = (sortPlan: TheLibraryDataType[]) => {
+  const sortList = (sortPlan: TheLibraryDataType[]) => {
     const sortedList = [...sortPlan];
-      if (sortBy === 'duration') {
-        sortedList.sort((a,b)=> b.duration - a.duration)
-      } else if (sortBy === 'calories') {
-        sortedList.sort((a, b) => b.caloriesBurned - a.caloriesBurned) 
-      } else if (sortBy === 'rating') {
-        sortedList.sort((a, b) => b.rating - a.rating) 
-      }
+    if (sortBy === 'duration') {
+      sortedList.sort((a, b) => b.duration - a.duration)
+    } else if (sortBy === 'calories') {
+      sortedList.sort((a, b) => b.caloriesBurned - a.caloriesBurned)
+    } else if (sortBy === 'rating') {
+      sortedList.sort((a, b) => b.rating - a.rating)
+    }
     return sortedList;
   }
 
-   const sortedPlan = sortList(isTodaysPlan);
+  const sortedPlan = sortList(isTodaysPlan);
 
-   
-   
+
+
   //Mark as Done
   const handleMarkAsDone = (fitLog: TheLibraryDataType) => {
     const restItem = isTodaysPlan.filter((markDone: TheLibraryDataType) => markDone !== fitLog)
     setIsTodaysPlan([...restItem]);
-    toast.success(`Completed ${fitLog.name}`)
+    toast.success(`Completed ${fitLog.name}`,{
+            position: "top-right",
+            autoClose: 1000,
+            hideProgressBar: true,
+            closeOnClick: false,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+            transition: Bounce,
+          })
   }
-  
-  
-  
+
+
+
   return (
     <div className='grid grid-cols-1 md:grid-cols-2 plan:grid-cols-1 gap-3'>
       {
