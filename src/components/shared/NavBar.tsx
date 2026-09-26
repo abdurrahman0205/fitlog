@@ -7,24 +7,25 @@ import NavBarFunction from '../functions/NavBarFunction';
 const NavBar = () => {
 
   const navMenu = <>
-    <li className='text-[#C2F800] rounded-2xl bg-[#C2F800]/20'>
-      <Link href='/'>Workouts</Link> </li>
-    <li className='hover:bg-none'><Link href='/myplan'>My Plan</Link></li>
+    <li className='rounded border border-[#f0f0f077] mb-1 '>
+      <Link href='/' className='text-[14px] font-bold'>Workouts</Link> </li>
+    <li className='rounded border border-[#f0f0f077]'><Link href='/myplan' className='text-[14px] font-bold'>My Plan</Link></li>
+ 
   </>;
 
   return (
     <header className='bg-[#000000] shadow-sm border-b-2 border-[#1B1F28]'>
-      <nav className=' container mx-auto max-w-5xl'>
+      <nav className=' container mx-auto max-w-5xl px-4 lg:px-0 pr-8 lg:pr-0'>
         <div className="navbar">
           <div className="navbar-start">
             <div className="dropdown">
-              <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
+              <div tabIndex={0} role="button" className="btn btn-ghost md:hidden">
                 <svg aria-label="Menu" xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"> <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /> </svg>
               </div>
-              {/* ul, NavBar responsive Menu  */}
+              {/* NavBar responsive Menu  */}
               <ul
                 tabIndex={-1}
-                className="menu menu-sm dropdown-content rounded-box z-1 mt-3 w-52 p-2 shadow ">
+                className="menu menu-sm dropdown-content rounded-md z-1 mt-3 w-50 p-5 shadow border border-[#f0f0f03a] bg-black ">
                 {navMenu}
               </ul>
             </div>
@@ -32,7 +33,7 @@ const NavBar = () => {
               <Image src={Logo} width={120} height={120} alt='Logo'></Image>
             </Link>
           </div>
-          <div className="navbar-center hidden lg:flex">
+          <div className="navbar-center hidden md:flex">
            {/* ul, NavBar Middle Menu */}
             <NavBarMiddleMenu />
           </div>

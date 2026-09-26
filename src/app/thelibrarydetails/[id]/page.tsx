@@ -30,7 +30,7 @@ const TLDetailsPage = async({params,}:{params: Promise<{id: string}>}) => {
   return (
     <section>
 
-      <div className='container px-10 md:px-0 mx-auto max-w-5xl mt-15 mb-18'>
+      <div className='container px-10 lg:px-0 mx-auto max-w-5xl mt-15 mb-18'>
       
         <div className='grid md:grid-cols-2 gap-5 justify-between'>
           <div className=''><Image src={image} width={740} height={740} className='w-full h-auto rounded-md' alt={name} /></div>

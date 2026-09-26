@@ -49,7 +49,7 @@ const TodaysPlan = () => {
   
   
   return (
-    <div className='grid grid-cols-1 gap-3'>
+    <div className='grid grid-cols-1 md:grid-cols-2 plan:grid-cols-1 gap-3'>
       {
         sortedPlan.map((FitLog: TheLibraryDataType) => {
 
@@ -58,13 +58,13 @@ const TodaysPlan = () => {
 
 
           return (
-            <div key={id} className='w-full bg-gray-00 flex justify-between items-center rounded-2xl overflow-hidden py-2 px-3 border border-[#232732]'>
+            <div key={id} className='w-full bg-gray-00 flex flex-col plan:flex-row plan:justify-between plan:items-center rounded-2xl overflow-hidden plan:py-2 plan:px-3 border border-[#232732]'>
 
-              <div className="flex gap-3 items-center">
+              <div className="plan:flex gap-3 plan:items-center">
                 <figure className='2xl'>
-                  <Image src={image} width={740} height={740} className='w-30 h-20 object-cover rounded-2xl' alt={`${name}`} />
+                  <Image src={image} width={740} height={740} className='w-full h-auto plan:w-30 plan:h-20 object-cover plan:rounded-2xl' alt={`${name}`} />
                 </figure>
-                <div>
+                <div className='my-4 plan:my-0 mx-5 plan:mx-0 space-y-1'>
                   {/* card-body*/}
                   <h2 className={`font-bold ${oswald.className}`}>{name.toUpperCase()}</h2>
                   <p className='text-[12px] text-[#black]'>{equipment}</p>
@@ -82,7 +82,7 @@ const TodaysPlan = () => {
                 </div>
               </div>
               {/* Button part */}
-              <div className='flex gap-3 justify-end items-center text-[13px] text-black'>
+              <div className='flex plan:gap-3 plan:justify-end items-center text-[13px] text-black justify-around  plan:mx-0 mb-6 plan:mb-0'>
                 <Link href={`/thelibrarydetails/${id}`} className='text-white rounded-2xl cursor-pointer py-2 px-5 outline outline-[#374151]'>View Details</Link>
                 <button
                   onClick={() => handleMarkAsDone(FitLog)}

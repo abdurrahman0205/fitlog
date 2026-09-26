@@ -75,15 +75,15 @@ const PageDetailsPageButton = ({ fitLog }: { fitLog: TheLibraryDataType }) => {
 
 
   return (
-    <div className='flex gap-4'>
+    <div className='lg:flex lg:flex-row flex flex-col gap-4'>
       <button
         onClick={() => handleTodaysPlan(fitLog)}
-        className='flex items-center gap-2 bg-[#CCFF00] rounded-xl text-black font-semibold text-[16px] py-3 px-6 cursor-pointer'><PiCalendarPlus className='text-[18px]' />Add to today&apos;s plan</button>
+        className='flex items-center gap-2 bg-[#CCFF00] rounded-xl text-black font-semibold text-[16px] py-3 px-6 cursor-pointer justify-center'><PiCalendarPlus className='text-[18px]' />Add to today&apos;s plan</button>
 
       <button
 
         onClick={() => handleSavedPlan(fitLog)}
-        className='flex items-center gap-2 rounded-xl outline outline-[#374151] text-white font-semibold text-[16px] py-3 px-6 cursor-pointer'><VscBookmark className='text-[18px]' />Save for later</button>
+        className='flex items-center gap-2 rounded-xl outline outline-[#374151] text-white font-semibold text-[16px] py-3 px-6 cursor-pointer justify-center'><VscBookmark className='text-[18px]' />Save for later</button>
 
     </div>
   );
