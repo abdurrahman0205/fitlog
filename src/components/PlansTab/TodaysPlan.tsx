@@ -8,7 +8,7 @@ import React, { useContext } from 'react';
 import { FaRegStar } from 'react-icons/fa';
 import { IoMdTime } from 'react-icons/io';
 import { PiFireSimpleFill } from 'react-icons/pi';
-import { RxCross2 } from 'react-icons/rx';
+import { RxCheck, RxCross2 } from 'react-icons/rx';
 import { toast } from 'react-toastify';
 
 const TodaysPlan = () => {
@@ -86,7 +86,7 @@ const TodaysPlan = () => {
                 <Link href={`/thelibrarydetails/${id}`} className='text-white rounded-2xl cursor-pointer py-2 px-5 outline outline-[#374151]'>View Details</Link>
                 <button
                   onClick={() => handleMarkAsDone(FitLog)}
-                  className='bg-[#CCFF00] rounded-2xl font-semibold cursor-pointer py-2 px-5'>Mark as Done</button>
+                  className='bg-[#CCFF00] rounded-2xl font-semibold cursor-pointer py-2 px-5 flex items-center justify-center gap-0.5'><RxCheck className='text-[20px]' />Mark as Done</button>
                 <RxCross2
                   onClick={() => handleTodaysPlanDelete(FitLog)}
                   className='text-[#6B7280] text-[25px] mr-5 cursor-pointer' />
