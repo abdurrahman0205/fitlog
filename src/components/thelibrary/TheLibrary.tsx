@@ -20,7 +20,7 @@ const TheLibrary = async () => {
 
   return (
     <section id='library' className='my-15 '>
-      <div className='container px-10 lg:px-0 max-w-5xl xl:max-w-7xl mx-auto'>
+      <div className='container px-5 lg:px-0 max-w-5xl xl:max-w-7xl mx-auto'>
 
         <div>
           <h1 className={`text-2xl text-[#ffff] font-bold ${oswald.className}`}>THE LIBRARY</h1>

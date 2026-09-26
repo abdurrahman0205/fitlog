@@ -3,7 +3,7 @@ import React from 'react';
 const DetailsPageLoading = () => {
   return (
     <section>
-      <div className="container mx-auto mt-15 mb-18 max-w-5xl px-10 md:px-0">
+      <div className="container mx-auto mt-15 mb-18 max-w-5xl px-5 md:px-0">
         <div className="grid gap-8 md:grid-cols-2 md:gap-10">
 
           {/* Image skeleton */}

@@ -15,7 +15,7 @@ const NavBar = () => {
 
   return (
     <header className='bg-[#000000] shadow-sm border-b-2 border-[#1B1F28]'>
-      <nav className=' container mx-auto max-w-5xl px-4 lg:px-0 pr-8 lg:pr-0'>
+      <nav className=' container mx-auto max-w-5xl px-4 lg:px-0 pr-2.5 lg:pr-0'>
         <div className="navbar">
           <div className="navbar-start">
             <div className="dropdown">

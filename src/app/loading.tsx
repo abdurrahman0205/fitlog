@@ -1,7 +1,7 @@
 const GlobalLoading = () => {
   return (
     <section>
-      <div className="container px-10 md:px-0 mx-auto max-w-5xl">
+      <div className="container px-5 md:px-0 mx-auto max-w-5xl">
 
         {/* Banner */}
         <div className="mt-10 flex min-h-107.5 items-center justify-between gap-10 rounded-2xl border border-[#222630] bg-[#15171D] px-12 py-10">
