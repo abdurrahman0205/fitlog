@@ -5,8 +5,10 @@ import React, { useContext } from 'react';
 
 const PlanTabs = () => {
 
-  const { selectedPlan, setSelectedPlan } = useContext(FitLogContext);
+  const { selectedPlan, setSelectedPlan, sortBy, setSortBy } = useContext(FitLogContext);
 
+ 
+  
 
 
   return (
@@ -26,12 +28,15 @@ const PlanTabs = () => {
 
       <div className='flex gap-2 items-center justify-end'>
         <span>Sort By</span>
-        <select defaultValue='Duration'
+        <select value={sortBy}
+          onChange={(e) => setSortBy(e.target.value as 'duration'|'calories'|'rating')}
+          
           className='flex items-center gap-0.5 border border-[#2B303D] rounded-[9px] px-3.5 py-1.5'>
+          
           <option disabled={true}>Select</option>
-          <option>Duration</option>
-          <option>Rating</option>
-          <option>Calorie</option>
+          <option value='duration'>Duration</option>
+          <option value='calories'>Calories</option>
+          <option value='rating'>Rating</option>
         </select>
       </div>
     </div>

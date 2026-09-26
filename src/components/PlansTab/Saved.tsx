@@ -13,19 +13,34 @@ import { toast } from 'react-toastify';
 
 const Saved = () => {
 
-  const { isSaved, setIsSaved } = useContext(FitLogContext)
+  const { isSaved, setIsSaved, sortBy } = useContext(FitLogContext)
 
-  const handleSavedPlanDelete =(fitLog: TheLibraryDataType) => {
-      const restItem = isSaved.filter((deletedPlan: TheLibraryDataType) => deletedPlan !== fitLog)
-      setIsSaved([...restItem]);
-      toast.error(`Removed ${fitLog.name} from the list`)
-    } 
+  const handleSavedPlanDelete = (fitLog: TheLibraryDataType) => {
+    const restItem = isSaved.filter((deletedPlan: TheLibraryDataType) => deletedPlan !== fitLog)
+    setIsSaved([...restItem]);
+    toast.error(`Removed ${fitLog.name} from the list`)
+  }
+
+  // Sort By
+  const sortList = (sortPlan: TheLibraryDataType[]) => {
+    const sortedList = [...sortPlan];
+    if (sortBy === 'duration') {
+      sortedList.sort((a, b) => b.duration - a.duration)
+    } else if (sortBy === 'calories') {
+      sortedList.sort((a, b) => b.caloriesBurned - a.caloriesBurned)
+    } else if (sortBy === 'rating') {
+      sortedList.sort((a, b) => b.rating - a.rating)
+    }
+    return sortedList;
+  }
+
+  const sortedPlan = sortList(isSaved);
 
 
   return (
     <div className='grid grid-cols-1 gap-3'>
       {
-        isSaved.map((FitLog: TheLibraryDataType) => {
+        sortedPlan.map((FitLog: TheLibraryDataType) => {
 
 
           const { id, name, image, equipment, rating, duration, caloriesBurned, } = FitLog;
