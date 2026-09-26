@@ -51,7 +51,7 @@ const Saved = () => {
 
               <div className="plan:flex gap-3 plan:items-center">
                 <figure className='2xl'>
-                  <Image src={image} width={740} height={740} className='w-full h-auto plan:w-30 plan:h-20 object-cover plan:rounded-2xl' alt={`${name}`} />
+                  <Image src={image} width={740} height={740} className='w-full h-70 plan:w-30 plan:h-20 object-cover plan:rounded-2xl' alt={`${name}`} />
                 </figure>
                 <div className="my-4 plan:my-0 mx-5 plan:mx-0 space-y-1">
                   {/* card-body*/}

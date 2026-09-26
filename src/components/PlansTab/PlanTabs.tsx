@@ -27,13 +27,13 @@ const PlanTabs = () => {
       </div>
 
       <div className='flex gap-2 items-center justify-end'>
-        <span>Sort By</span>
+        <span className='hidden md:block'>Sort By</span>
         <select value={sortBy}
           onChange={(e) => setSortBy(e.target.value as 'duration'|'calories'|'rating')}
           
           className='flex items-center gap-0.5 border border-[#2B303D] rounded-[9px] px-3.5 py-1.5'>
           
-          <option disabled={true}>Select</option>
+          <option disabled>Select</option>
           <option value='duration'>Duration</option>
           <option value='calories'>Calories</option>
           <option value='rating'>Rating</option>
