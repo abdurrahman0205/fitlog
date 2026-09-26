@@ -1,3 +1,4 @@
+import NotFound from '@/app/not-found';
 import PageDetailsPageButton from '@/components/shared/PageDetailsPageButton';
 import { getData } from '@/components/thelibrary/TheLibrary';
 import { oswald } from '@/lib/Fonts';
@@ -11,11 +12,21 @@ const TLDetailsPage = async({params,}:{params: Promise<{id: string}>}) => {
 
   const { id } = await params;
 
-  const fitLogData = await getData();
-  const fitLog = fitLogData.find((data: TheLibraryDataType) => data.id === Number(id));
 
+
+  const fitLogData = await getData();
+  
+  const fitLog = fitLogData.find((data: TheLibraryDataType) => {
+    
+    return data.id === Number(id);
+  });
+
+  if (typeof fitLog === 'undefined') {
+    return <NotFound />
+  }
   const { name, image, equipment, muscleGroups, rating, duration, caloriesBurned, description, instructions, reps, difficulty, sets } = fitLog
 
+  
 
   const tableDetails = [
     ["equipment", equipment],
