@@ -90,7 +90,10 @@ const PageDetailsPageButton = ({ fitLog }: { fitLog: TheLibraryDataType }) => {
     <div className='lg:flex lg:flex-row flex flex-col gap-4'>
       <button
         onClick={() => handleTodaysPlan(fitLog)}
-        className='flex items-center gap-2 bg-[#CCFF00] rounded-xl text-black font-semibold text-[16px] py-3 px-6 cursor-pointer justify-center'><PiCalendarPlus className='text-[18px]' />Add to today&apos;s plan</button>
+        className={`flex items-center gap-2 bg-[#CCFF00] rounded-xl text-black font-semibold text-[16px] py-3 px-6 justify-center
+         ${isTodaysPlan.length === 5 ? 'bg-[#CCFF00]/60 cursor-not-allowed' :'cursor-pointer '}`}
+        disabled={isTodaysPlan.length === 5? true:false}
+        ><PiCalendarPlus className='text-[18px]' />Add to today&apos;s plan</button>
 
       <button
 
