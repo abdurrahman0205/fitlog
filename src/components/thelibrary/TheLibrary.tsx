@@ -4,10 +4,14 @@ import { TheLibraryDataType } from '@/types/types'
 import TheLibraryCard from './TheLibraryCard';
 
 export const getData = async () => {
-  
-  try{
-    const response = await fetch('https://api.abcz.workers.dev/api/fitlog');
-    
+
+  try {
+    const response = await fetch('https://api.api-store.workers.dev/api/fitlog');
+
+    if (!response.ok) {
+      throw new Error(`Error ${response.status}`)
+    }
+
     return response.json();
   } catch (error) {
     console.error('Error fetching data', error);
